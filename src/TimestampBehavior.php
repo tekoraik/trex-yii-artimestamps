@@ -49,6 +49,13 @@ class TimestampBehavior extends Behavior
     public $updatedAtField = 'updated_at';
 
     /**
+     * Timestamps format
+     *
+     * @var string
+     */
+    public $format = 'Y-m-d H:i:s';
+
+    /**
      * Events definition
      *
      * @return array
@@ -73,8 +80,8 @@ class TimestampBehavior extends Behavior
      */
     public function initEvent()
     {
-        $this->owner->{$this->createdAtField} = date('Y-m-d H:i:s');
-        $this->owner->{$this->updatedAtField} = date('Y-m-d H:i:s');
+        $this->owner->{$this->createdAtField} = date($this->format);
+        $this->owner->{$this->updatedAtField} = date($this->format);
     }
 
     /**
@@ -88,8 +95,8 @@ class TimestampBehavior extends Behavior
      */
     public function beforeInsert()
     {
-        $this->owner->{$this->createdAtField} = date('Y-m-d H:i:s');
-        $this->owner->{$this->updatedAtField} = date('Y-m-d H:i:s');
+        $this->owner->{$this->createdAtField} = date($this->format);
+        $this->owner->{$this->updatedAtField} = date($this->format);
     }
 
     /**
@@ -103,6 +110,6 @@ class TimestampBehavior extends Behavior
      */
     public function beforeUpdate()
     {
-        $this->owner->{$this->updatedAtField} = date('Y-m-d H:i:s');
+        $this->owner->{$this->updatedAtField} = date($this->format);
     }
 }
