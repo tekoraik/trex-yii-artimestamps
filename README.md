@@ -23,9 +23,10 @@ public function behaviors()
 {
     return [
         "timestamp" => [
-            "class" => \trex\yii\artimestamps\TimestampBehavior::className(),
-            "createdAtField" => {{ my create field }},
-            "updatedAtField" => {{ my update field }},
+            'class' => \trex\yii\artimestamps\TimestampBehavior::className(),
+            'createdAtField' => '{{ my create field }}',
+            'updatedAtField' => '{{ my update field }}',
+            'format' => 'Y-m-d H:i:s' //this is optional
         ]
     ];
 }
